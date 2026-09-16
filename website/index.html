@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SpaceDrop — Private File Drops, Sealed End-to-End</title>
+  <meta name="description" content="Private file drops, anywhere — sealed end to end with a six-character code. Native macOS application and instant web drops with zero cloud retention.">
+  <meta name="theme-color" content="#050e17">
+
+  <!-- OpenGraph / Social Meta Tags -->
+  <meta property="og:title" content="SpaceDrop — Private File Drops, Sealed End-to-End">
+  <meta property="og:description" content="Send files, photos, and notes across the internet sealed with a 6-character code. Zero accounts. Zero server copies. First claim wins.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pulsedrop-d6x1mxr.rork.app">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+  <link rel="apple-touch-icon" href="assets/logo.jpg">
+
+  <!-- Google Fonts: Outfit & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Background Glow & Grid -->
+  <div class="ambient-glow glow-top" aria-hidden="true"></div>
+  <div class="ambient-glow glow-bottom" aria-hidden="true"></div>
+  <div class="grid-overlay" aria-hidden="true"></div>
+
+  <!-- Navigation Bar -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="#" class="brand-link" id="brand-logo" aria-label="SpaceDrop Home">
+        <img src="assets/logo.png" alt="SpaceDrop Logo" class="brand-logo-img" width="40" height="40">
+        <span class="brand-text">SpaceDrop</span>
+      </a>
+
+      <nav class="nav-menu" aria-label="Main Navigation">
+        <a href="#features" class="nav-item">Features</a>
+        <a href="#simulator" class="nav-item">Interactive Sandbox</a>
+        <a href="#crypto" class="nav-item">Zero-Knowledge Crypto</a>
+        <a href="#macos" class="nav-item">macOS App</a>
+        <a href="#faq" class="nav-item">FAQ</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="https://pulsedrop-d6x1mxr.rork.app" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" id="btn-open-web">
+          <span>Open Web Client</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+        <a href="#download" class="btn btn-primary btn-sm" id="btn-nav-download">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.66-.82 1.11-1.96.99-3.1-.96.04-2.12.65-2.8 1.45-.6.69-1.12 1.83-1 2.95 1.07.08 2.15-.48 2.81-1.3"/></svg>
+          <span>Download App</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-container">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          <span>Native for macOS Sonoma & Sequoia + Live Web Interop</span>
+        </div>
+
+        <h1 class="hero-title">
+          Private file drops, anywhere.<br>
+          <span class="gradient-text">Sealed with a 6-character code.</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          SpaceDrop sends files, photos, and notes across the internet with an end-to-end encrypted code.
+          The code is the only key — derived on your device using PBKDF2 and AES-GCM. The server stores only unreadable ciphertext. When claimed, the drop self-destructs.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#download" class="btn btn-primary btn-lg" id="btn-hero-download">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.66-.82 1.11-1.96.99-3.1-.96.04-2.12.65-2.8 1.45-.6.69-1.12 1.83-1 2.95 1.07.08 2.15-.48 2.81-1.3"/></svg>
+            <span>Download for macOS</span>
+            <span class="btn-badge">v1.0</span>
+          </a>
+          <a href="https://pulsedrop-d6x1mxr.rork.app" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-lg" id="btn-hero-web">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+            <span>Launch Web Client</span>
+          </a>
+        </div>
+
+        <div class="trust-indicators">
+          <div class="indicator-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#08c1b5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>Client-Side AES-256-GCM</span>
+          </div>
+          <div class="indicator-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#21abfe" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span>Zero Account Required</span>
+          </div>
+          <div class="indicator-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e2554f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
+            <span>15-Min Auto-Destruct</span>
+          </div>
+        </div>
+
+        <!-- Interactive Mac Window Preview -->
+        <div class="mac-window-wrapper">
+          <div class="mac-window">
+            <div class="window-titlebar">
+              <div class="traffic-lights">
+                <span class="light red"></span>
+                <span class="light yellow"></span>
+                <span class="light green"></span>
+              </div>
+              <div class="window-title">
+                <img src="assets/logo.png" alt="SpaceDrop" width="18" height="18" class="window-logo-img">
+                <span>SpaceDrop — Native macOS</span>
+              </div>
+              <div class="window-spacer"></div>
+            </div>
+
+            <div class="window-body">
+              <!-- Live Interactive Radar Canvas inside the mock app -->
+              <div class="mock-radar-area">
+                <canvas id="hero-radar-canvas" width="400" height="300" aria-label="Interactive Radar Display"></canvas>
+                <div class="radar-center-glow"></div>
+                <div class="radar-center-label">You</div>
+                <div class="radar-hint-card">
+                  <span class="hint-pulse-dot"></span>
+                  <span id="radar-status-text">Scanning for active spaces nearby… Click anywhere on the radar to ping.</span>
+                </div>
+              </div>
+
+              <!-- Interactive Drop Form in Window -->
+              <div class="mock-controls-area">
+                <div class="code-entry-row">
+                  <input type="text" id="mock-code-input" class="code-input" placeholder="HAVE A CODE" maxlength="6" autocomplete="off" spellcheck="false">
+                  <button class="btn btn-primary" id="btn-mock-claim">Claim</button>
+                </div>
+                <div class="mock-drop-btn-row">
+                  <button class="btn btn-drop-big" id="btn-mock-drop">
+                    <span>Drop a code</span>
+                    <span class="drop-badge">Drag & Drop Any File</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Live Interactive Sandbox / Crypto Derivation Section -->
+    <section class="section sandbox-section" id="simulator">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Live Cryptographic Proof</span>
+          <h2 class="section-title">Test the Zero-Knowledge Derivation</h2>
+          <p class="section-subtitle">
+            See how SpaceDrop converts a human-friendly 6-character code into a 256-bit AES-GCM key and a zero-knowledge lookup ID right here in your browser using the standard Web Crypto API.
+          </p>
+        </div>
+
+        <div class="sandbox-card">
+          <div class="sandbox-input-panel">
+            <label for="live-code-input" class="sandbox-label">Type or Generate a 6-Character Code</label>
+            <div class="sandbox-code-controls">
+              <input type="text" id="live-code-input" class="live-code-display" value="K9X2B4" maxlength="6" autocomplete="off" spellcheck="false">
+              <button class="btn btn-secondary" id="btn-random-code">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>
+                <span>Roll Random Code</span>
+              </button>
+            </div>
+            <div class="sandbox-algorithm-tag">
+              <span>PBKDF2-SHA256 (120,000 rounds)</span> • <span>Salt: "pulsedrop.drop.v1"</span>
+            </div>
+          </div>
+
+          <div class="sandbox-output-panel">
+            <div class="crypto-step">
+              <div class="step-header">
+                <span class="step-num">01</span>
+                <span class="step-title">Client-Side AES-256-GCM Encryption Key</span>
+                <span class="step-badge lock">Never Leaves Device</span>
+              </div>
+              <div class="crypto-hash-box">
+                <code id="derived-key-hex">Computing key derivation…</code>
+                <button class="copy-btn" data-target="derived-key-hex" title="Copy Key">Copy</button>
+              </div>
+            </div>
+
+            <div class="crypto-step">
+              <div class="step-header">
+                <span class="step-num">02</span>
+                <span class="step-title">Public Relay Lookup ID</span>
+                <span class="step-badge public">Sent to Server</span>
+              </div>
+              <div class="crypto-hash-box">
+                <code id="derived-lookup-hex">Computing lookup ID…</code>
+                <button class="copy-btn" data-target="derived-lookup-hex" title="Copy Lookup ID">Copy</button>
+              </div>
+            </div>
+
+            <div class="crypto-summary-card">
+              <div class="summary-icon">🛡️</div>
+              <div class="summary-text">
+                <strong>Zero-Knowledge Guarantee:</strong> Because the relay server only receives the <code>lookupId</code>, it cannot reverse-engineer the original 6-character code or derive the AES-GCM key. Ciphertext stored in relay chunks remains mathematically indecipherable to the server and third parties.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section class="section features-section" id="features">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Engineered For Privacy</span>
+          <h2 class="section-title">Everything Built For Fast, Sealed Sharing</h2>
+          <p class="section-subtitle">
+            No accounts, no email verification, no tracking pixels. Just launch, drop, and share.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <!-- Card 1 -->
+          <article class="feature-card">
+            <div class="feature-icon-wrapper blue">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <h3 class="feature-heading">End-to-End Sealed</h3>
+            <p class="feature-description">
+              Every file is sliced into 512 KB chunks, individually sealed with random 12-byte initialization vectors and AES-256-GCM authentication tags before leaving your machine.
+            </p>
+            <div class="feature-pill">AES-GCM-256</div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="feature-card">
+            <div class="feature-icon-wrapper teal">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <h3 class="feature-heading">First Claim Wins & Self-Destructs</h3>
+            <p class="feature-description">
+              The moment your recipient claims and acknowledges the drop code, all chunks immediately self-destruct from the server. Unclaimed drops evaporate in 15 minutes.
+            </p>
+            <div class="feature-pill">Ephemeral By Design</div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="feature-card">
+            <div class="feature-icon-wrapper purple">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M16.2 7.8l-2 6.3-6.4 2 2-6.3z"/></svg>
+            </div>
+            <h3 class="feature-heading">Keep a Space Alive</h3>
+            <p class="feature-description">
+              Collaborative rooms for real-time note and file exchanges. Spaces stay alive 24 hours past the last post and update via encrypted long-polling feeds.
+            </p>
+            <div class="feature-pill">24h Ephemeral Boards</div>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="feature-card">
+            <div class="feature-icon-wrapper green">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"/></svg>
+            </div>
+            <h3 class="feature-heading">Area Radar Discovery</h3>
+            <p class="feature-description">
+              Optionally broadcast your space beacon to nearby radar cells. Local rooms glow as interactive teal blips within ~20 km, or toggle Invisible Mode for total stealth.
+            </p>
+            <div class="feature-pill">Geohash Beacon</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Native macOS App Section -->
+    <section class="section macos-section" id="macos">
+      <div class="container">
+        <div class="macos-layout">
+          <div class="macos-info">
+            <span class="section-badge">Native Apple Silicon & Intel</span>
+            <h2 class="section-title">Built Native for Mac with SwiftUI & CryptoKit</h2>
+            <p class="section-subtitle">
+              Enjoy all of SpaceDrop's power directly integrated into your macOS desktop workflow.
+            </p>
+
+            <div class="macos-features-list">
+              <div class="macos-feature-item">
+                <div class="check-icon">✓</div>
+                <div>
+                  <strong>Finder Drag & Drop:</strong>
+                  <p>Drag files from desktop, folders, or email attachments straight into the SpaceDrop window.</p>
+                </div>
+              </div>
+
+              <div class="macos-feature-item">
+                <div class="check-icon">✓</div>
+                <div>
+                  <strong>Vector QR Code Generation:</strong>
+                  <p>Crisp CoreImage vector QR codes rendered on-the-fly for rapid mobile scanning.</p>
+                </div>
+              </div>
+
+              <div class="macos-feature-item">
+                <div class="check-icon">✓</div>
+                <div>
+                  <strong>Native Notifications & NSSavePanel:</strong>
+                  <p>Get alerted when drops land in background and save files directly to any disk destination.</p>
+                </div>
+              </div>
+
+              <div class="macos-feature-item">
+                <div class="check-icon">✓</div>
+                <div>
+                  <strong>Keyboard Shortcuts:</strong>
+                  <p><code>⌘N</code> for New Drop, <code>⌘O</code> to Claim, and <code>⌘T</code> for New Space.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="macos-download-box" id="download">
+              <div class="download-header">
+                <div>
+                  <h4 class="download-title">SpaceDrop for Mac</h4>
+                  <p class="download-sub">Requires macOS 14.0 (Sonoma) or macOS 15.0+ (Sequoia)</p>
+                </div>
+                <span class="mac-badge">Universal Binary</span>
+              </div>
+
+              <div class="quickstart-terminal">
+                <div class="terminal-bar">
+                  <span class="term-dot"></span>
+                  <span class="term-dot"></span>
+                  <span class="term-dot"></span>
+                  <span class="term-title">Terminal Quickstart</span>
+                </div>
+                <div class="terminal-body">
+                  <code>git clone https://github.com/spacedrop/spacedrop.git</code>
+                  <code>cd spacedrop &amp;&amp; swift run</code>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="macos-preview-card">
+            <div class="preview-card-inner">
+              <div class="app-window-screenshot">
+                <div class="app-screenshot-header">
+                  <div class="app-traffic-lights">
+                    <span></span><span></span><span></span>
+                  </div>
+                  <span class="app-header-title">SpaceDrop</span>
+                </div>
+                <div class="app-screenshot-content">
+                  <div class="screen-radar-mock">
+                    <div class="radar-circle c1"></div>
+                    <div class="radar-circle c2"></div>
+                    <div class="radar-circle c3"></div>
+                    <div class="radar-wave-anim"></div>
+                    <div class="radar-user-dot"></div>
+                    <div class="radar-space-blip b1"></div>
+                    <div class="radar-space-blip b2"></div>
+                  </div>
+                  <div class="screen-card-mock">
+                    <span class="mock-tag">DROP CODE READY</span>
+                    <span class="mock-code">K9X2B4</span>
+                    <div class="mock-buttons">
+                      <span class="mock-pill blue">Copy Code</span>
+                      <span class="mock-pill teal">Copy Link</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comparison Table Section -->
+    <section class="section comparison-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">The Clear Choice</span>
+          <h2 class="section-title">How SpaceDrop Compares</h2>
+          <p class="section-subtitle">
+            Designed from the ground up to eliminate accounts, persistent tracking, and data retention.
+          </p>
+        </div>
+
+        <div class="table-container">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th scope="col">Feature</th>
+                <th scope="col" class="highlight-col">SpaceDrop</th>
+                <th scope="col">Traditional Cloud Drives</th>
+                <th scope="col">Standard Web Transfer</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Client-Side E2E Encryption</th>
+                <td class="highlight-col"><span class="badge-yes">Yes (AES-GCM)</span></td>
+                <td><span class="badge-no">Server Holds Keys</span></td>
+                <td><span class="badge-no">Transit Only</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Account Required</th>
+                <td class="highlight-col"><span class="badge-yes">Never (Zero Sign-up)</span></td>
+                <td><span class="badge-no">Mandatory</span></td>
+                <td><span class="badge-maybe">Usually Email Required</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Self-Destruction</th>
+                <td class="highlight-col"><span class="badge-yes">Instant Upon Claim (or 15m)</span></td>
+                <td><span class="badge-no">Persists Indefinitely</span></td>
+                <td><span class="badge-maybe">Days or Weeks</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Key Delivery</th>
+                <td class="highlight-col"><span class="badge-yes">6-Character Drop Code</span></td>
+                <td><span class="badge-no">Long Links / Account Grants</span></td>
+                <td><span class="badge-no">Email Links</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Ephemeral Shared Spaces</th>
+                <td class="highlight-col"><span class="badge-yes">24h Real-Time Boards</span></td>
+                <td><span class="badge-no">Complex Folder Permissions</span></td>
+                <td><span class="badge-no">Not Supported</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section faq-section" id="faq">
+      <div class="container faq-container">
+        <div class="section-header">
+          <span class="section-badge">Frequently Asked Questions</span>
+          <h2 class="section-title">Got Questions? We’ve Got Answers.</h2>
+        </div>
+
+        <div class="faq-accordion">
+          <details class="faq-item" open>
+            <summary class="faq-question">
+              <span>How does a six-character code securely encrypt my files?</span>
+              <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="faq-answer">
+              <p>
+                SpaceDrop passes your 6-character code into PBKDF2 with SHA-256 for 120,000 computational rounds using a cryptographic salt. This produces 512 bits: the first 256 bits serve as the local AES-GCM encryption key, while the remaining bits yield a public <code>lookupId</code>. The encryption key never leaves your device, so anyone intercepting the lookup ID cannot open your drop without the 6-character code.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>Can the server or administrators view my drops or photos?</span>
+              <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="faq-answer">
+              <p>
+                No. Because all encryption and decryption occurs exclusively in your browser or native Mac app, the relay server only receives opaque binary ciphertext. The server has no access to the keys, plaintext filenames, or payload contents.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>What is a Space versus a Drop?</span>
+              <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="faq-answer">
+              <p>
+                A <strong>Drop</strong> is a point-to-point one-time transfer: the first person to claim the 6-character code downloads the files and the drop is immediately destroyed. A <strong>Space</strong> is a multi-user ephemeral room that stays alive for 24 hours after the last post, allowing everyone with the code to post notes and share unsealable files in real time.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>What are the file size and item limits?</span>
+              <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="faq-answer">
+              <p>
+                Drop codes carry up to 24 files per batch, with a maximum per-file size of 50 MB and a total batch limit of 96 MB. Files are sliced into 512 KB chunks for resilient background uploading and streaming.
+              </p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <div class="brand-link">
+          <img src="assets/logo.png" alt="SpaceDrop Logo" class="brand-logo-img" width="36" height="36">
+          <span class="brand-text">SpaceDrop</span>
+        </div>
+        <p class="footer-tagline">Private file drops, anywhere. Private by design, built independently.</p>
+      </div>
+
+      <div class="footer-links-group">
+        <div class="footer-col">
+          <span class="footer-heading">Apps & Web</span>
+          <a href="https://pulsedrop-d6x1mxr.rork.app" target="_blank" rel="noopener noreferrer">Launch Web Client</a>
+          <a href="#download">macOS Application</a>
+          <a href="#simulator">Crypto Sandbox</a>
+        </div>
+
+        <div class="footer-col">
+          <span class="footer-heading">Community & Support</span>
+          <a href="https://t.me/pulsedrop_support" target="_blank" rel="noopener noreferrer">Telegram Support</a>
+          <a href="https://github.com/spacedrop/spacedrop" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom container">
+      <p>© 2026 SpaceDrop. All encryption performed client-side.</p>
+      <div class="footer-meta">
+        <span>Zero Logs</span> • <span>Zero Ads</span> • <span>Open Protocol</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
